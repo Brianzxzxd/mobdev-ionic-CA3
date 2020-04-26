@@ -1,9 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>characterDetails</ion-title>
-  </ion-toolbar>
+  <ion-toolbar color="secondary">
+    	<ion-buttons slot="start">
+      <!--set styles-->
+			<ion-back-button defaulthref="/tabs/characters"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Characters Details</ion-title>
+        <ion-buttons slot="end">
+            <!--to get unfavourite character-->
+			<ion-button (click)="unfavouriteCharacter()" *ngIf="isFavourite">
+				<ion-icon name="star" slot="icon-only" color="danger"></ion-icon>
+			</ion-button>
+           <!--to get  favourite character-->
+			<ion-button (click)="favouriteCharacter()" *ngIf="!isFavourite">
+				<ion-icon name="star-outline" slot="icon-only" color="danger"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+	<ion-card *ngIf="character">
+		<ion-card-content>
+			<h4>Name: {{ character.name }} </h4><!-- character details-->
+		</ion-card-content>
+	</ion-card>
+
+    <ion-card *ngIf="character">
+		<ion-card-content>
+			<h4>Nickname: {{ character.nickname }} </h4><!-- character details-->
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card *ngIf="character">
+		<ion-card-content>
+			<h4>Occupation: {{ character.occupation }} </h4><!-- character details-->
+		</ion-card-content>
+	</ion-card>
+
+    <ion-card *ngIf="character">
+		<ion-card-content>
+			<h4>Status: {{ character.status }} </h4><!-- character details-->
+		</ion-card-content>
+	</ion-card>
 
 </ion-content>

@@ -1,33 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-character-details',
-  templateUrl: './character-details.page.html',
-  styleUrls: ['./character-details.page.scss'],
+    selector: 'app-character-details',
+    templateUrl: './character-details.page.html',
+    styleUrls: ['./character-details.page.scss'],
 })
 export class CharacterDetailsPage implements OnInit {
 
- characters: Observable<any>;
- 
-  constructor(private router: Router, private api: ApiService) { }
- 
+    character: any;
+    isFavourite = false;
+    characterId = null;
+
+    constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
+
   ngOnInit() {
-      this.characters = this.api.getCharacters();
-      this.characters.subscribe(data =>
-      {
-     console.log('my characters:', data);
 
-      });
+    this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.api.getCharacter(this.characterId).subscribe(res => {
+      this.character = res[0];
+    });
   }
-  
-openDetails(character)
-{
-let characterId= character.char_Id;
-this.router.navigateByUrl(`tabs/characters/${characterId}`);
-
-}
-
 }

@@ -1,13 +1,23 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Death</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="medium"><!--set styles-->
+		<ion-title>Deaths</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-list>
-        <ion-item button detail lines="inset" *ngFor="let Death of Deaths | async" (click)="openDetails(Death)">
-			{{ Death?.title }}
+	<ion-searchbar [(ngModel)]="terms"></ion-searchbar>
+	<ion-card>
+		<ion-item *ngFor="let death of deaths | async"><!--set count number of deaths-->
+			Total: {{ death.deathCount }}
 		</ion-item>
-    </ion-list>
+
+		<ion-item class="text-align-center"><!--list killers or witnessess numbers-->
+			<b>Killers/Witnessess: </b>
+		</ion-item>
+
+		<ion-item *ngFor="let death of killers | async"><!--show the name-->
+			{{ death.death }}
+		</ion-item>
+	</ion-card>
+
 </ion-content>

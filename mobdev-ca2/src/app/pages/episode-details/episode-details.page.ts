@@ -16,4 +16,6 @@ export class EpisodeDetailsPage implements OnInit {
       this.episode = res[0];
     })
     }
+
+    
 }

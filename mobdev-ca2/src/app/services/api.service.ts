@@ -7,49 +7,36 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
 
   constructor(private http:HttpClient) { }
- getEpisodes()
-  {
-    return this.http.get(`https://8101-ae2397c2-d0ef-450e-84b1-44c7e86f9fcf.ws-eu01.gitpod.io/tabs/episodes.json`)
+   getEpisodes() {
+    return this.http.get('https://breakingbadapi.com/api/episodes');
+  }
+ /**GET a Episode by ID from breakingbad api website */
+  getEpisode(id) {
+    return this.http.get(`https://breakingbadapi.com/api/episodes/${id}`);
+  }
+/**GET characters from breakingbad api website*/
+  getCharacters() {
+        return this.http.get('https://www.breakingbadapi.com/api/characters');
+    }
+/**GET characters by ID from breakingbad api website*/
+    getCharacter(id) {
+        return this.http.get(`https://www.breakingbadapi.com/api/characters/${id}`);
+    }
     
-  }
-  getEpisode(id)
-  {
-
-    return this.http.get(`https://8101-ae2397c2-d0ef-450e-84b1-44c7e86f9fcf.ws-eu01.gitpod.io/tabs/episode.json`);
-  
-  }
-   getCharacters()
-  {
-    return this.http.get(`https://8101-ae2397c2-d0ef-450e-84b1-44c7e86f9fcf.ws-eu01.gitpod.io/tabs/characters.json`)
-    
-  }
-  getcharacters(id)
-  {
-
-    return this.http.get(`https://8101-ae2397c2-d0ef-450e-84b1-44c7e86f9fcf.ws-eu01.gitpod.io/tabs/character.json`)
-    
-  }
- getQuote()
-  {
-    return this.http.get(`https://8101-ae2397c2-d0ef-450e-84b1-44c7e86f9fcf.ws-eu01.gitpod.io/assets/quotes.json`)
-    
-  }
-  getQuotes(id)
-  {
-
-    return this.http.get(`https://8101-ae2397c2-d0ef-450e-84b1-44c7e86f9fcf.ws-eu01.gitpod.io/assets/quote.json`)
-    
-  }
-
- getDeaths()
-  {
-    return this.http.get(`https://8101-ae2397c2-d0ef-450e-84b1-44c7e86f9fcf.ws-eu01.gitpod.io/assets/deaths.json`)
-    
-  }
-  getDeath(id)
-  {
-
-    return this.http.get(`https://8101-ae2397c2-d0ef-450e-84b1-44c7e86f9fcf.ws-eu01.gitpod.io/assets/death.json`)
-    
-  }
+    /**GET quotes reletad to episodes from breakingbad api website*/
+    getQuotes() {
+        return this.http.get('https://www.breakingbadapi.com/api/quotes');
+    }
+    /**GET quotes by ID reletad to episodes from breakingbad api website*/
+    getQuote(id) {
+        return this.http.get(`https://www.breakingbadapi.com/api/quotes/${id}`);
+    }
+/**GET numbers of deaths reletad to a character from breakingbad api website*/
+   getDeaths() {
+        return this.http.get(`https://www.breakingbadapi.com/api/death-count`);
+    }
+    /**get killers of deaths from breakingbad api website */
+    getKillers() {
+        return this.http.get(`https://www.breakingbadapi.com/api/deaths`);
+    }
 }
