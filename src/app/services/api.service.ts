@@ -8,19 +8,19 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
    getEpisodes() {
-    return this.http.get('https://fierce-plateau-35840.herokuapp.com/api/episodes');
+    return this.http.get('https://www.breakingbadapi.com/api/episodes');
   }
  /**GET a Episode by ID from breakingbad api website */
   getEpisode(id) {
-    return this.http.get(`https://fierce-plateau-35840.herokuapp.com/api/episodes/${id}`);
+    return this.http.get(`https://www.breakingbadapi.com/api/episodes/${id}`);
   }
 /**GET characters from breakingbad api website*/
   getCharacters() {
-        return this.http.get('https://fierce-plateau-35840.herokuapp.com/api/characters');
+        return this.http.get('https://www.breakingbadapi.com/api/characters');
     }
 /**GET characters by ID from breakingbad api website*/
     getCharacter(id) {
-        return this.http.get(`https://fierce-plateau-35840.herokuapp.com/api/characters/${id}`);
+        return this.http.get(`https://www.breakingbadapi.com/api/characters/${id}`);
     }
     
     /**GET quotes reletad to episodes from breakingbad api website*/
