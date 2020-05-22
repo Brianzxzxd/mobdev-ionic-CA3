@@ -25,18 +25,18 @@ export class ApiService {
     
     /**GET quotes reletad to episodes from breakingbad api website*/
     getQuotes() {
-        return this.http.get('https://fierce-plateau-35840.herokuapp.com/api/quotes');
+        return this.http.get('https://www.breakingbadapi.com/api/quotes');
     }
     /**GET quotes by ID reletad to episodes from breakingbad api website*/
     getQuote(id) {
-        return this.http.get(`https://fierce-plateau-35840.herokuapp.com/api/quotes/${id}`);
+        return this.http.get(`https://www.breakingbadapi.com/api/quotes/${id}`);
     }
 /**GET numbers of deaths reletad to a character from breakingbad api website*/
    getDeaths() {
-        return this.http.get(`https://fierce-plateau-35840.herokuapp.com/api/death-count`);
+        return this.http.get(`https://www.breakingbadapi.com/api/death-count`);
     }
     /**get killers of deaths from breakingbad api website */
     getKillers() {
-        return this.http.get(`https://fierce-plateau-35840.herokuapp.com/api/deaths`);
+        return this.http.get(`https://www.breakingbadapi.com/api/deaths`);
     }
 }
